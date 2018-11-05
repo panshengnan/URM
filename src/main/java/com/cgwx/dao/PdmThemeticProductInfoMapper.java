@@ -21,8 +21,8 @@ public interface PdmThemeticProductInfoMapper {
     int selectThemeticProductCountByDate(@Param("currentDate") String currentDate);
 
 
-    @Select("SELECT single_period_product_directory\n" +
-            "FROM pdm_themetic_product_detail_info \n" +
+    @Select("SELECT parent_directory\n" +
+            "FROM pdm_themetic_product_info \n" +
             "WHERE  product_id = #{productId}"
     )
     String selectFilePathByProductId(@Param("productId") String productId);

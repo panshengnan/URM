@@ -1,11 +1,11 @@
-package com.cgwx.service.impl.impl;
+package com.cgwx.service.impl;
 
 import com.cgwx.aop.result.Result;
 import com.cgwx.aop.result.ResultUtil;
 import com.cgwx.common.constants.LayerInfo;
 import com.cgwx.common.utils.GeoserverXml;
 import com.cgwx.common.utils.PublishLayer;
-import com.cgwx.service.impl.LayerPublishService;
+import com.cgwx.service.LayerPublishService;
 import net.sf.json.JSONObject;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.UsernamePasswordCredentials;
@@ -17,7 +17,6 @@ import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.geotools.coverage.grid.GridCoverage2D;
 import org.geotools.gce.geotiff.GeoTiffFormat;
 import org.geotools.gce.geotiff.GeoTiffReader;
-import org.geotools.geojson.geom.GeometryJSON;
 import org.geotools.geometry.jts.JTS;
 import org.geotools.referencing.CRS;
 import org.geotools.referencing.crs.DefaultGeographicCRS;

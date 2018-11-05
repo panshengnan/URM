@@ -4,6 +4,8 @@ import java.util.List;
 
 public class SecondaryFileStructure {
 
+    private String tempId;
+
     private List<String> file;
 
     private List<DirectoryInfo> directory;
@@ -22,5 +24,13 @@ public class SecondaryFileStructure {
 
     public void setDirectory(List<DirectoryInfo> directory) {
         this.directory = directory;
+    }
+
+    public String getTempId() {
+        return tempId;
+    }
+
+    public void setTempId(String tempId) {
+        this.tempId = tempId;
     }
 }

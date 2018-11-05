@@ -4,8 +4,7 @@ import com.cgwx.dao.*;
 import com.cgwx.data.dto.DirectoryInfo;
 import com.cgwx.data.dto.SecondaryFileStructure;
 import com.cgwx.data.dto.UploadFileReturn;
-import com.cgwx.data.entity.PdmArchiveCheckInfo;
-import com.cgwx.data.entity.PdmThemeticProductInfo;
+import com.cgwx.data.entity.*;
 import com.cgwx.service.IProductArchiveService;
 import com.cgwx.service.IProductDownloadService;
 import com.sun.media.jai.codec.ImageCodec;
@@ -66,8 +65,13 @@ public class IProductArchiveServiceImpl implements IProductArchiveService {
     @Autowired
     PdmProductInfoMapper pdmProductInfoMapper;
 
+    @Autowired
+    PdmThemeticProductDetailIndustryInfoMapper pdmThemeticProductDetailIndustryInfoMapper;
 
-    @Override
+    @Autowired
+    PdmThemeticProductDetailInfoMapper pdmThemeticProductDetailInfoMapper;
+
+    @Override/*上传文件*/
     public UploadFileReturn uploadFile(MultipartFile file) {
         if (file.isEmpty()) {
             return null;
@@ -381,6 +385,7 @@ public class IProductArchiveServiceImpl implements IProductArchiveService {
         PdmArchiveCheckInfo pdmArchiveCheckInfo = new PdmArchiveCheckInfo();
         pdmArchiveCheckInfo.setTemporaryPath(path);
         pdmArchiveCheckInfo.setProductId(tempId);
+        pdmArchiveCheckInfo.setFileName(path.substring(path.lastIndexOf('\\')+1));
         pdmArchiveCheckInfoMapper.insert(pdmArchiveCheckInfo);
         return secondaryFileStructure;
     }
@@ -471,4 +476,38 @@ public class IProductArchiveServiceImpl implements IProductArchiveService {
         return pdmProductInfoMapper.selectProducerList(producer);
     }
 
+    @Override/**/
+    public int updateProductInfoForTheme(PdmProductInfo pdmProductInfo){
+       return pdmProductInfoMapper.insert(pdmProductInfo);
+    }
+
+    @Override/**/
+    public String getThemeticProductName(String tempId){
+
+        return pdmArchiveCheckInfoMapper.selectFileNameById(tempId);
+    }
+
+    @Override/**/
+    public String getThemeticProductTemporaryPath(String tempId){
+
+        return pdmArchiveCheckInfoMapper.selectTemporaryPathById(tempId);
+    }
+
+    @Override/**/
+    public int updateThemeticProductDetailIndustry(PdmThemeticProductDetailIndustryInfo pdmThemeticProductDetailIndustryInfo){
+
+        return pdmThemeticProductDetailIndustryInfoMapper.insert(pdmThemeticProductDetailIndustryInfo);
+    }
+
+    @Override/**/
+    public int updateThemeticProductDetail(PdmThemeticProductDetailInfo pdmThemeticProductDetailInfo){
+
+        return pdmThemeticProductDetailInfoMapper.insert(pdmThemeticProductDetailInfo);
+    }
+
+    @Override/**/
+    public int updateThemeticProduct(PdmThemeticProductInfo pdmThemeticProductInfo){
+
+        return pdmThemeticProductInfoMapper.insert(pdmThemeticProductInfo);
+    }
 }

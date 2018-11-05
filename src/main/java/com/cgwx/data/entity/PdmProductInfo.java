@@ -1,5 +1,7 @@
 package com.cgwx.data.entity;
 
+import java.util.Date;
+
 public class PdmProductInfo {
     private String productId;
 
@@ -8,6 +10,14 @@ public class PdmProductInfo {
     private Integer productType;
 
     private String productDescription;
+
+    private String clientName;
+
+    private String deliverName;
+
+    private Date deliverTime;
+
+    private String producer;
 
     public String getProductId() {
         return productId;
@@ -39,5 +49,37 @@ public class PdmProductInfo {
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription == null ? null : productDescription.trim();
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName == null ? null : clientName.trim();
+    }
+
+    public String getDeliverName() {
+        return deliverName;
+    }
+
+    public void setDeliverName(String deliverName) {
+        this.deliverName = deliverName == null ? null : deliverName.trim();
+    }
+
+    public Date getDeliverTime() {
+        return deliverTime;
+    }
+
+    public void setDeliverTime(Date deliverTime) {
+        this.deliverTime = deliverTime;
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer == null ? null : producer.trim();
     }
 }

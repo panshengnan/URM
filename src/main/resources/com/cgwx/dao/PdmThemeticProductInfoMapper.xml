@@ -7,15 +7,21 @@
     <result column="industry" property="industry" jdbcType="VARCHAR" />
     <result column="parent_directory" property="parentDirectory" jdbcType="VARCHAR" />
     <result column="is_multi_period" property="isMultiPeriod" jdbcType="INTEGER" />
+    <result column="client_name" property="clientName" jdbcType="VARCHAR" />
+    <result column="deliever_name" property="delieverName" jdbcType="VARCHAR" />
+    <result column="deliever_time" property="delieverTime" jdbcType="DATE" />
   </resultMap>
   <insert id="insert" parameterType="com.cgwx.data.entity.PdmThemeticProductInfo" >
     insert into pdm_themetic_product_info (product_id, themetic_product_name, industry, 
-      parent_directory, is_multi_period)
+      parent_directory, is_multi_period, client_name, 
+      deliever_name, deliever_time)
     values (#{productId,jdbcType=VARCHAR}, #{themeticProductName,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, 
-      #{parentDirectory,jdbcType=VARCHAR}, #{isMultiPeriod,jdbcType=INTEGER})
+      #{parentDirectory,jdbcType=VARCHAR}, #{isMultiPeriod,jdbcType=INTEGER}, #{clientName,jdbcType=VARCHAR}, 
+      #{delieverName,jdbcType=VARCHAR}, #{delieverTime,jdbcType=DATE})
   </insert>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select product_id, themetic_product_name, industry, parent_directory, is_multi_period
+    select product_id, themetic_product_name, industry, parent_directory, is_multi_period, 
+    client_name, deliever_name, deliever_time
     from pdm_themetic_product_info
   </select>
 </mapper>

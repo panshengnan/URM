@@ -4,6 +4,8 @@ import java.util.List;
 
 public class DirectoryInfo {
 
+    private String singleTempId;
+
     private String directoryName;
 
     private List<String> fileListInDirectory;
@@ -22,5 +24,13 @@ public class DirectoryInfo {
 
     public void setFileListInDirectory(List<String> fileListInDirectory) {
         this.fileListInDirectory = fileListInDirectory;
+    }
+
+    public String getSingleTempId() {
+        return singleTempId;
+    }
+
+    public void setSingleTempId(String singleTempId) {
+        this.singleTempId = singleTempId;
     }
 }

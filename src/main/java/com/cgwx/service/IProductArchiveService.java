@@ -1,7 +1,10 @@
-package com.cgwx.service.impl;
+package com.cgwx.service;
 
 import com.cgwx.data.dto.SecondaryFileStructure;
 import com.cgwx.data.dto.UploadFileReturn;
+import com.cgwx.data.entity.PdmProductInfo;
+import com.cgwx.data.entity.PdmThemeticProductDetailIndustryInfo;
+import com.cgwx.data.entity.PdmThemeticProductDetailInfo;
 import com.cgwx.data.entity.PdmThemeticProductInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,5 +34,13 @@ public interface IProductArchiveService {
     UploadFileReturn uploadFile(MultipartFile file);
     String unZip(String fileName, String filePath);
     void zip(String srcFile, String dest, String passwd);
-
+    List<String> getClientNameList(String clientName);
+    List<String> getDeliverNameList(String deliverName);
+    List<String> getProducerList(String producer);
+    int updateProductInfoForTheme(PdmProductInfo pdmProductInfo);
+    String getThemeticProductName(String tempId);
+    String getThemeticProductTemporaryPath(String tempId);
+    int updateThemeticProductDetailIndustry(PdmThemeticProductDetailIndustryInfo pdmThemeticProductDetailIndustryInfo);
+    int updateThemeticProductDetail(PdmThemeticProductDetailInfo pdmThemeticProductDetailInfo);
+    int updateThemeticProduct(PdmThemeticProductInfo pdmThemeticProductInfo);
 }

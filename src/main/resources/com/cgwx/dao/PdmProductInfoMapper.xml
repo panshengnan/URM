@@ -6,15 +6,22 @@
     <result column="product_name" property="productName" jdbcType="VARCHAR" />
     <result column="product_type" property="productType" jdbcType="INTEGER" />
     <result column="product_description" property="productDescription" jdbcType="VARCHAR" />
+    <result column="client_name" property="clientName" jdbcType="VARCHAR" />
+    <result column="deliver_name" property="deliverName" jdbcType="VARCHAR" />
+    <result column="deliver_time" property="deliverTime" jdbcType="TIMESTAMP" />
+    <result column="producer" property="producer" jdbcType="VARCHAR" />
   </resultMap>
   <insert id="insert" parameterType="com.cgwx.data.entity.PdmProductInfo" >
     insert into pdm_product_info (product_id, product_name, product_type, 
-      product_description)
+      product_description, client_name, deliver_name, 
+      deliver_time, producer)
     values (#{productId,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{productType,jdbcType=INTEGER}, 
-      #{productDescription,jdbcType=VARCHAR})
+      #{productDescription,jdbcType=VARCHAR}, #{clientName,jdbcType=VARCHAR}, #{deliverName,jdbcType=VARCHAR}, 
+      #{deliverTime,jdbcType=TIMESTAMP}, #{producer,jdbcType=VARCHAR})
   </insert>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select product_id, product_name, product_type, product_description
+    select product_id, product_name, product_type, product_description, client_name, 
+    deliver_name, deliver_time, producer
     from pdm_product_info
   </select>
 </mapper>
